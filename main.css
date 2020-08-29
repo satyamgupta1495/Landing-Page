@@ -1,0 +1,186 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+section {
+  padding: 2em 0;
+}
+.container {
+  width: 85%;
+  margin: 0 auto;
+  max-width: 65em;
+}
+
+/* use it anywhere */
+
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.split > * {
+  flex-basis: 30%;
+  min-width: 15em;
+}
+/* till here */
+
+/* direct childern inside of it */
+.spacing > * + * {
+  margin-top: var(--spacer, 2rem);
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5em 1.25em;
+  background: var(--clr-accent, blue);
+  color: var(--clr-text, white);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  border-radius: 0.3em;
+  transition: transform 250ms ease-in-out, opacity 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+
+.primary-title {
+  font-size: 4rem;
+  font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+  line-height: 1;
+  color: #17353d;
+  margin-bottom: 5rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 15em 0;
+  color: #fff;
+}
+
+@supports (background-blend-mode: multiply) {
+  .hero {
+    background-image: url(img/shoe.jpg), radial-gradient(#444, #111);
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+.featured {
+  background: #fff;
+}
+
+.featured_item {
+  transform: scale(0.85);
+  display: block;
+  position: relative;
+  transition: transform 250ms ease-in-out;
+  text-decoration: none;
+  color: #444;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.featured_item:hover,
+.featured_item:focus {
+  transform: scale(1);
+}
+
+.featured_item::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 14%;
+  z-index: -1;
+  padding: 75% 75% 0 0;
+  background: #54cfee;
+  border-radius: 50%;
+}
+
+.featured_details {
+  opacity: 0;
+}
+
+.featured_details:hover {
+  opacity: 1;
+  transition: opacity 250ms linear;
+}
+
+.featured_details span {
+  display: block;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.product {
+  background: radial-gradient(
+    var(--clr-inner, limegreen),
+    var(--clr-outer, purple)
+  );
+  padding: 3em;
+  border-radius: 1em;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.product_title {
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 0 0.2rem rgba(#000, 0.2);
+  line-height: 1.1;
+  font-size: clamp(3rem, calc(5vw +1rem, 5.5em));
+}
+
+.hero {
+  --clr-accent: #faa700;
+}
+.shoe-black {
+  --clr-inner: #faa700;
+  --clr-outer: #e48d00;
+  --clr-accent: #a1173c;
+}
+.shoe-white {
+  --clr-inner: #f5e4c3;
+  --clr-outer: #ad9462;
+  --clr-accent: #1d3d52;
+}
+.shoe-blue {
+  --clr-inner: #85e0f7;
+  --clr-outer: #2193b0;
+  --clr-accent: #008951;
+}
